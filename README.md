@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: deepakputhraya/action-branch-name@master
         with:
-          regex: '([a-z])+\/([a-z])+' # This we need to check how to add pattern for `feat/AB#125-branch-name-validation`,`fix/AB#125-branch-name-validation`
+          regex: '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)\/AB\#[0-9]{5}\-[a-zA-Z0-9-/]+$'
           allowed_prefixes: 'feat,fix,docs,style,refactor,perf,test,build,ci,chore,revert'
           ignore: master,staging,develop
           min_length: 5
@@ -27,7 +27,7 @@ jobs:
 ```
 
 ```
-pattern = '^(feat|fix)\/AB-[a-zA-Z0-9-]+\#[0-9]{5}\-[a-zA-Z0-9-/]+$'
+pattern = '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)\/AB\#[0-9]{5}\-[a-zA-Z0-9-/]+$'
 
 
 
