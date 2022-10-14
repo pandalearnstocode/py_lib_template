@@ -40,12 +40,11 @@ jobs:
             chore
             revert
           requireScope: false
-          subjectPattern: ^AB\#[0-9]{5}\-[a-zA-Z0-9-/]+$
+          subjectPattern: ^AB\#[0-9]{5}.*$
           subjectPatternError: |
             The subject "{subject}" found in the pull request title "{title}"
             didn't match the configured pattern. Please ensure that the subject
             doesn't start with an uppercase character.
-          githubBaseUrl: https://github.myorg.com/api/v3
           ignoreLabels: |
             bot
             ignore-semantic-pull-request
@@ -54,6 +53,40 @@ jobs:
           wip: true
           validateSingleCommit: true
           validateSingleCommitMatchesPrTitle: true
+      - name: Python setup
+        run: echo "Python setup"
+      - name: Install Poetry and system dependencies
+        run: echo "Install Poetry and system dependencies"
+      - name: Install Package dependencies
+        run: echo "Install Package dependencies"
+      - name: Setup cache
+        run: echo "Setup cache"
+      - name: Formatting
+        run: echo "Formatting"
+      - name: Static typing
+        run: echo "Static typing"
+      - name: Linting
+        run: echo "Linting"
+      - name: safety, bandit
+        run: echo "safety, bandit"
+      - name: gitleaks, checkmarx
+        run: echo "gitleaks, checkmarx"
+      - name: CodeQL, OSSR
+        run: echo "CodeQL, OSSR"
+      - name: Synk (we have to check how to setup automated scanning)
+        run: echo "Synk (we have to check how to setup automated scanning)"
+      - name: Running pytest
+        run: echo "Running pytest"
+      - name: Generate test coverage
+        run: echo "Generate test coverage"
+      - name: Perform Sonar Cloud scanning
+        run: echo "Perform Sonar Cloud scanning"
+      - name: Upload all artifacts as github artifacts
+        run: echo "Upload all artifacts as github artifacts"
+      - name: Perform CML with sample dvc  (optional)
+        run: echo "Perform CML with sample dvc  (optional)"
+      - name: Integrate model KPI goodness
+        run: echo "Integrate model KPI goodness"
 ```
 
 __Examples:__
