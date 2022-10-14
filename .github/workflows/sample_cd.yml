@@ -1,0 +1,29 @@
+name: 'CD'
+on: 
+  push:
+    branches:
+      - "master"
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Python setup
+        run: echo "Python setup"
+      - name: Install Poetry and system dependencies
+        run: echo "Install Poetry and system dependencies"
+      - name: Install Package dependencies
+        run: echo "Install Package dependencies"
+      - name: Setup cache
+        run: echo "Setup cache"
+      - name: Python Semantic Release
+        run: echo "Python Semantic Release (changelogs, git tags, github release)"
+      - name: release drafter
+        run: echo "release drafter"
+      - name: jfrog release
+        run: echo "jfrog release"
+      - name: Docker release
+        run: echo "Docker release"
+      - name: wiki release
+        run: echo "wiki release"
+      - name: notification email and teams
+        run: echo "notification email and teams"
