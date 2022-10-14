@@ -1,0 +1,14 @@
+name: 'Assert Branch Naming Convention'
+on: pull_request
+
+jobs:
+  branch-naming-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: deepakputhraya/action-branch-name@master
+        with:
+          regex: '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)\/AB\#[0-9]{5}\-[a-zA-Z0-9-/]+$'
+          allowed_prefixes: 'feat,fix,docs,style,refactor,perf,test,build,ci,chore,revert'
+          ignore: master,staging,develop
+          min_length: 5
+          max_length: 20
