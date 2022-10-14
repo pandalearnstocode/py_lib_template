@@ -1,0 +1,26 @@
+```yml
+name: 'Assert Branch Naming Convention'
+on: 
+  pull_request:
+      types:
+        - opened
+        - edited
+        - synchronize
+jobs:
+  branch-naming-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: deepakputhraya/action-branch-name@master
+        with:
+          regex: '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)\/AB\#[0-9]{5}\-[a-zA-Z0-9-/]+$'
+          allowed_prefixes: 'feat,fix,docs,style,refactor,perf,test,build,ci,chore,revert'
+          ignore: master,staging,develop
+          min_length: 5
+          max_length: 50
+      - uses: TimonVS/pr-labeler-action@v3
+        with:
+          configuration-path: .github/pr-labeler.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+```
