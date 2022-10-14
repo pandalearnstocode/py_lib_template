@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: deepakputhraya/action-branch-name@master
         with:
-          regex: '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)\/AB\#[0-9]{5}\-[a-zA-Z0-9-/]+$'
+          regex: '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)\/AB\#[0-9]{5}\-[a-zA-Z0-9-/]+$' # https://learn.microsoft.com/en-us/azure/devops/user-guide/service-limits?view=azure-devops#work-items
           allowed_prefixes: 'feat,fix,docs,style,refactor,perf,test,build,ci,chore,revert'
           ignore: master,staging,develop
           min_length: 5
