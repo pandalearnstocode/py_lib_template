@@ -22,5 +22,41 @@ jobs:
           configuration-path: .github/pr-labeler.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            docs
+            style
+            refactor
+            perf
+            test
+            build
+            ci
+            chore
+            revert
+          subjectPattern: ^(?![A-Z]).+$
+          subjectPatternError: |
+            The subject "{subject}" found in the pull request title "{title}"
+            didn't match the configured pattern. Please ensure that the subject
+            doesn't start with an uppercase character.
+          githubBaseUrl: https://github.myorg.com/api/v3
+          ignoreLabels: |
+            bot
+            ignore-semantic-pull-request
+          headerPattern: '^(\w*): (.*)$'
+          headerPatternCorrespondence: type, subject
+          wip: true
+          validateSingleCommit: true
+          validateSingleCommitMatchesPrTitle: true
 ```
+
+__Examples:__
+
+* branch name:
+* pr label:
+* pr title:
+* commit message:
