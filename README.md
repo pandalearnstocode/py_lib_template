@@ -126,10 +126,34 @@ jobs:
           wip: true
           validateSingleCommit: true
           validateSingleCommitMatchesPrTitle: true
+      - name: Python setup
+        run: echo "Python setup"
+      - name: Install Poetry and system dependencies
+        run: echo "Install Poetry and system dependencies"
+      - name: Install Package dependencies
+        run: echo "Install Package dependencies"
+      - name: Setup cache
+        run: echo "Setup cache"
+      - name: Formatting
+        run: echo "Formatting"
+      - name: Static typing
+        run: echo "Static typing"
+      - name: Linting
+        run: echo "Linting"
+      - name: safety, bandit
+        run: echo "safety, bandit"
+      - name: gitleaks, checkmarx
+        run: echo "gitleaks, checkmarx"
+      - name: CodeQL, OSSR
+        run: echo "CodeQL, OSSR"
+      - name: Synk (we have to check how to setup automated scanning)
+        run: echo "Synk (we have to check how to setup automated scanning)"
 ```
 
 
 
+
+https://pypi.org/project/commitizen/
 
 ## __Draft release (optional)__
 
