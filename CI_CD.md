@@ -38,7 +38,8 @@ jobs:
             ci
             chore
             revert
-          subjectPattern: ^(?![A-Z]).+$
+          requireScope: false
+          subjectPattern: ^AB\#[0-9]{5}\-[a-zA-Z0-9-/]+$
           subjectPatternError: |
             The subject "{subject}" found in the pull request title "{title}"
             didn't match the configured pattern. Please ensure that the subject
@@ -56,7 +57,22 @@ jobs:
 
 __Examples:__
 
-* branch name:
-* pr label:
-* pr title:
-* commit message:
+* branch name: `feat/AB#-12345-develop-poisson-model`
+* pr label: `feat`
+* pr title: `feat(ui): AB#-12345 develop poisson model`
+* commit message: `feat(ui): AB#-12345 develop poisson model`
+`type`: `feat`, `scope`: `ui`, `subject`: `AB#-12345 develop poisson model`
+
+feat: AB#-12345 develop poisson model #22
+fix: AB#-12346 develop poisson model #21
+
+
+
+* feat(ui): AB#-12345 develop poisson model
+* feat(ci): AB#-12345 develop poisson model
+* feat(cd): AB#-12345 develop poisson model
+
+
+* fix(ui): AB#-12345 develop poisson model
+* fix(ci): AB#-12345 develop poisson model
+* fix(cd): AB#-12345 develop poisson model
