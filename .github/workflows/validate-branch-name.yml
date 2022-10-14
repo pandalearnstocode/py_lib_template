@@ -1,6 +1,10 @@
 name: 'Assert Branch Naming Convention'
-on: pull_request
-
+on: 
+  pull_request:
+      types:
+        - opened
+        - edited
+        - synchronize
 jobs:
   branch-naming-rules:
     runs-on: ubuntu-latest
