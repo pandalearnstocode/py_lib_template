@@ -26,6 +26,26 @@ jobs:
           max_length: 20
 ```
 
+```
+pattern = '^(feat|fix)\/AB-[a-zA-Z0-9-]+\#[0-9]{5}\-[a-zA-Z0-9-/]+$'
+
+
+
+Valid strings:
+
+feat/AB-bug-title#12512-branch-name-validation
+feat/AB-asd#12322-validation/something
+fix/AB-ahjbsdhkfj-#12313-jasknd
+fix/AB-ahjbs--dhkfj#12313-jasknd-asd--asd-a-s-sd
+
+
+
+Invalid strings:
+
+chore/AB-bug/title#123-branch_name_validation
+update/AB-#12322-validation/something
+```
+
 
 ## __PR labeler__
 
@@ -43,7 +63,7 @@ jobs:
     steps:
       - uses: TimonVS/pr-labeler-action@v3
         with:
-          configuration-path: .github/pr-labeler.yml # optional, .github/pr-labeler.yml is the default value
+          configuration-path: .github/pr-labeler.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -51,11 +71,18 @@ jobs:
 ### __`.github/pr-labeler.yml`__
 
 ```yml
-feature: ['feature/*', 'feat/*']
+feat: feat/*
 fix: fix/*
+docs: docs/*
+style: style/*
+refactor: refactor/*
+perf: perf/*
+test: test/*
+build: build/*
+ci: ci/*
 chore: chore/*
+revert: revert/*
 ```
-
 
 ## __PR validation__
 
