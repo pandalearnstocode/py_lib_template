@@ -31,6 +31,7 @@ pattern = '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)\/AB\#
 
 
 
+
 Valid strings:
 
 feat/AB-bug-title#12512-branch-name-validation
